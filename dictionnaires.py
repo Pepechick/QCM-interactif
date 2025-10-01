@@ -1,0 +1,3 @@
+DictioQCM = {
+    "drapeaux/croatie.png"
+}
