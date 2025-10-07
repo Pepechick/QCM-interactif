@@ -2,9 +2,6 @@ import tkinter as tk
 from tkinter import *
 
 
-
-
-
 # Première fenêtre
 fenetre1 = tk.Tk()
 fenetre1.title("Première fenêtre")
