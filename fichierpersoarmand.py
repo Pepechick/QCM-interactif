@@ -1,6 +1,21 @@
 import tkinter as tk
 from tkinter import *
 
+fenetre0 = tk.Tk()
+fenetre0.title("Première fenêtre")
+fenetre0.geometry("300x200")
+
+photo = PhotoImage(file="glob.avif")
+
+canvas = Canvas(fenetre,width=350, height=200)
+canvas.create_image(0, 0, anchor=NW, image=photo)
+canvas.pack()
+
+# Bouton pour valider
+boutton_premier_valider = tk.Button(fenetre0, text="commencer le QCM", command = lambda: lancer(fenetre1))
+boutton_premier_valider.pack(pady=10) # lambda sert a preciser dans quelle fenetre on se trouve (c'est un argument)
+
+fenetre0.mainloop()
 
 # Première fenêtre
 fenetre1 = tk.Tk()
@@ -81,22 +96,22 @@ def ouvrir_quatrieme_fenetre(fenetre_actuelle):
     bouton_quitter = tk.Button(fenetre4, text="Quitter", command=exit)
     bouton_quitter.pack(pady=10)
 
-def ouvrir_troisieme_fenetre(fenetre_actuelle):
-    fenetre_actuelle.destroy()
+    fenetre4.mainloop()
 
-    fenetre3 = tk.Tk()
-    fenetre3.title("Troisième fenêtre")
-    fenetre3.geometry("300x200")
+def afficher_score():
+    label.config(text="")
 
-    texte_fenetre3 = tk.Label(fenetre3, text="Bienvenue dans la troisième fenêtre !")
-    texte_fenetre3.pack(pady=20)
+fenetre = tk.Tk()
+fenetre.title("Affichage du Score")
+fenetre.geometry("300x150")
 
-    tk.Checkbutton(fenetre3, text="Option 1").pack()
-    tk.Checkbutton(fenetre3, text="Option 2").pack()
-    tk.Checkbutton(fenetre3, text="Option 3").pack()
-    tk.Checkbutton(fenetre3, text="Option 4").pack()
+bouton = tk.Button(fenetre, text="Afficher le score", command=afficher_score)
+bouton.pack(pady=20)
+label = tk.Label(fenetre, text="")
+label.pack()
 
-    boutton_trois_valider = tk.Button(fenetre3, text="Suivant", command=lambda: ouvrir_quatrieme_fenetre(fenetre3))
-    boutton_trois_valider.pack(pady=10)
+quitter_boutton = tk.Button(fenetre, text="Quitter", command=fenetre.quit)
+quitter_boutton.pack()
 
-    fenetre3.mainloop()
+fenetre.mainloop() 
+
