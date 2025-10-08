@@ -8,7 +8,7 @@ class QCM:
 
 
 
-def liste_rep(dico=DictioQCM, question):
+    def liste_rep(question, dico=self.QCM):
         assert question <= 10, "Attention, il n'y a que 10 question"
         i = 1
         for liste_reponses in dico.values():
@@ -17,7 +17,7 @@ def liste_rep(dico=DictioQCM, question):
             i += 1
         return r
 
-def liste_quest(dico=DictioQCM):
+    def liste_quest(dico=self.QCM):
         i = 1
         q = []
         for quest in dico.keys():
