@@ -1,0 +1,19 @@
+from interfacetkinter import lancer   # importation de la fonction lancer du fichier interfacetkinter 
+
+# Bienvenu sur la station de lancement du tkinter.
+# C'est un projet organisé par Simon, Pierre et Armand.
+# Le projet tkinter est un projet visant à vous faire visiter les pays du monde entier. 
+# Alors attacher vos ceintures et...
+# 5...
+# 4...
+# 3...
+# 2...
+# 1...
+# C'EST PARTI !!!
+
+def preparation():
+    r = input("Entrez votre nom (même si en vrai on s'en fou) ")
+    print(f"C'est parti {r} !")
+    lancer()
+
+preparation()
