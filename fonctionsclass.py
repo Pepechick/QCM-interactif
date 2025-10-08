@@ -1,8 +1,8 @@
 from dictionnaires import DictioQCM
 
-class questionnairetressimple:
+class Questionnairetressimple:
 
-    def __init__(self, QCM): 
+    def __init__(self, QCM=DictioQCM): 
         self.QCM = QCM
         self.score = 0
 
@@ -75,18 +75,6 @@ class questionnairetressimple:
             return 0
 
 
-
-
-class QCM:
-
-    def __init__(self):
-        "doc"
-
-
-
-
-
-
     def liste_rep(question, dico=self.QCM):
         assert question <= 10, "Attention, il n'y a que 10 question"
         i = 1
@@ -101,3 +89,5 @@ class QCM:
         q = []
         for quest in dico.keys():
             q.append(quest)
+
+CQCM = Questionnairetressimple()
