@@ -1,3 +1,6 @@
+# J'importe les images du dossier drapeaux
+# La petite étoile est la bonne réponse
+
 DictioQCM = {
     "drapeaux/Australie.png": ["Nouvelle-Zélande", "Australie*", "Iles Cook", "Etats-Unis"],
     "drapeaux/croatie.png": ["Croatie*", "Pays-Bas", "Paraguay", "Luxembourg"],

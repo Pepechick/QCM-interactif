@@ -56,7 +56,7 @@ class questionnairetressimple:
 #########################################################################################################
     
     def score_reponse(self, rep, question):
-        ''' calcul le score de la question n°i en fonction de la réponse
+        ''' calcul le score de la question en fonction de la réponse
         --> renvoie 0 ou 1'''
 
         val = self.QCM[question]
