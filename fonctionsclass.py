@@ -76,6 +76,7 @@ class Questionnairetressimple:
 
 
     def liste_rep(question, dico):
+        """fait une liste des reponse de la question"""
         assert question <= 10, "Attention, il n'y a que 10 question"
         i = 1
         for liste_reponses in dico.values():
@@ -85,6 +86,7 @@ class Questionnairetressimple:
         return r
 
     def liste_quest(dico):
+        """fait une liste des question"""
         i = 1
         q = []
         for quest in dico.keys():

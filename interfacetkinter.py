@@ -24,6 +24,7 @@ def lancer():
 
 # ouvrir
 def ouvrir(fenetre="fenetre1", dico=DictioQCM):
+    """ouvre la fenetre de la question et detruis l'ancienne si elle est la"""
     
     i = int(fenetre[-1])
     assert i < 11, "Fin du QCM"
@@ -51,11 +52,13 @@ def ouvrir(fenetre="fenetre1", dico=DictioQCM):
 
     # Boutons réponses
     for k in range(4):
-        tk.Radiobutton(fenetre, text=rep[k]).pack
+        option = tk.Radiobutton(root,text=rep[k],variable=var,value=1).pack
+
+    """ici je voulais utiliser var.get lors de la pression du bouton "valider" pour utilisr la fonction de calcul de score de simon et l'afficher  la fin mais manque de temps :/"""
 
     
     # Bouton pour valider
-    boutton_valider = tk.Button(fenetre, text="Valider", command=lambda: ouvrir("fenetre"+str(i+1), dico))   #demander au prof pk ça marche pas
+    boutton_valider = tk.Button(fenetre, text="Valider", command=lambda: ouvrir("fenetre"+str(i+1), dico)) 
     boutton_valider.pack(pady=10) # lambda sert a preciser dans quelle fenetre on se trouve (c'est un argument)
 
     fenetre.mainloop()
