@@ -5,11 +5,15 @@ fenetre0 = tk.Tk()
 fenetre0.title("Première fenêtre")
 fenetre0.geometry("300x200")
 
-photo = PhotoImage(file="glob.avif")
 
-canvas = Canvas(fenetre,width=350, height=200)
-canvas.create_image(0, 0, anchor=NW, image=photo)
-canvas.pack()
+
+glob = Image.open("bob.png")
+glob = glob.resize((200, 200))
+photo = ImageTk.PhotoImage(glob)
+
+image = cannevasImg.create_image(124, 131, image=photo)
+cannevasImg.grid(row=1, column=3, rowspan=4, padx=10, pady=10, sticky=W)
+
 
 # Bouton pour valider
 boutton_premier_valider = tk.Button(fenetre0, text="commencer le QCM", command = lambda: lancer(fenetre1))
