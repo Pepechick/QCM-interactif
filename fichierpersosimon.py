@@ -13,7 +13,7 @@ class questionnairetressimple:
         for cle, valeur in self.QCM.items():
             if cle == question:
                 for i in range(len(valeur)):
-                    if valeur[i][-1] == "*":
+                    if valeur[i][-1] == "!":
                         v = valeur[i][:-1]  # on enlève l’étoile
                         return (i+1, v)
 
