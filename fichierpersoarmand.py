@@ -3,13 +3,15 @@ from tkinter import *
 from tkinter import ttk
 from fonctionsclass import *
 from dictionnaires import *
+from PILE import image, ImageTk
 
 
 
 def lancer():
-    fenetre0 = tk.Tk()
-    fenetre0.title("Première fenêtre")
-    fenetre0.geometry("300x200")
+    CQCM = Questionnairetressimple()
+    fenetre = tk.Tk()
+    fenetre.title("Première fenêtre")
+    fenetre.geometry("300x200")
 
     photo = PhotoImage(file="glob.avif")
 
@@ -17,25 +19,35 @@ def lancer():
     canvas.create_image(0, 0, anchor=NW, image=photo)
     canvas.pack()
 
-    boutton_start = tk.Button(fenetre0, text="commencer le QCM", command = lambda: ouvrir())
+    boutton_start = tk.Button(fenetre, text="commencer le QCM", command = lambda: ouvrir())
     boutton_start.pack(pady=10) # lambda sert a preciser dans quelle fenetre on se trouve (c'est un argument)
 
-#ouvrir
+# ouvrir
 def ouvrir(fenetre="fenetre1", dico=DictioQCM):
     
     i = int(fenetre[-1])
     assert i < 11, "Fin du QCM"
-    rep = liste_rep(dico, i)
-    quest = liste_quest(dico)
+    rep = CQCM.liste_rep(i, dico)
+    quest = CQCM.liste_quest(dico)
+    fenetre.destroy()
+
 
     # Création de la fenetre
     fenetre = tk.Tk()
     fenetre.title("Question "+str(i))
     fenetre.geometry("300x200")
 
-    #!!!!!!!!afficher le drapeau de quest[i-1]
+
+    # question
     texte_fenetre = tk.Label(fenetre, text="Quel est le pays de ce drapeau ?")
     texte_fenetre.pack(pady=10)
+
+    glob = Image.open("glob.webp")
+    glob = glob.resize((200, 200))
+    photo = ImageTk.PhotoImage(glob)
+
+    image = cannevasImg.create_image(124, 131, image=photo)
+    cannevasImg.grid(row=1, column=3, rowspan=4, padx=10, pady=10, sticky=W)
 
     # Boutons réponses
     for k in range(4):
@@ -47,6 +59,8 @@ def ouvrir(fenetre="fenetre1", dico=DictioQCM):
     boutton_valider.pack(pady=10) # lambda sert a preciser dans quelle fenetre on se trouve (c'est un argument)
 
     fenetre.mainloop()
+
+
 
 
 """
